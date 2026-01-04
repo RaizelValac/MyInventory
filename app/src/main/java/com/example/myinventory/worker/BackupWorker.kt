@@ -24,7 +24,7 @@ class BackupWorker@AssistedInject constructor(
                 try {
                     val products = dao.getAllProducts().first()
 
-                    if(products.isEmpty()) {
+                    if(products.isNotEmpty()) {
                         val path = CsvHelper.getDatabsetoCsv(context, products)
                         println("✅ Auto-Backup Successful: $path")
                     }
